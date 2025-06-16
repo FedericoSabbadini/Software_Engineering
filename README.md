@@ -1,7 +1,84 @@
-The goal is to develop, following an incremental/iterative development process, a software system to support the exchange—without any monetary transactions—of work performances that fall within a predefined (non-empty) set of activity categories. The application can be adopted by various organizations that oversee the exchange of activity hours pertaining to different sets of categories and/or operate in different locations.
+Project Overview
+This software system supports the exchange of work performances without involving any monetary transactions. It is developed using an incremental and iterative development process and is designed to be adopted by organizations that manage such exchanges across different activity categories and potentially across multiple locations.
 
-The application envisions two types of users: the configurator and the participant. The configurator is a representative of the organization who, through the software application, oversees the exchange of work performances without the use of money. They are responsible for defining the exchangeable activity categories and can access information related to current potential exchanges or those that have already taken place. The participant is a person who uses the application with the intention of carrying out exchanges, if possible. When the system identifies a potential exchange opportunity, it notifies the configurator, who then communicates it (outside the system) to each involved participant.
+Purpose
+The goal is to facilitate time-based exchanges of work (measured in hours) between users, within a predefined set of activity categories configured by the organization. The system enables:
 
-The application aims to support the exchange of work hours for different activities falling under specific categories, called leaf categories, defined by the configurator. The configurator also defines non-leaf categories, each of which has a characteristic field that can take a value from a finite (non-empty) domain of discrete values. The name of the field depends on the category it belongs to, as does the domain of that field. Each value in the field’s domain may be associated with a description. A category is divided into one or more (sub)categories, one for each value that its characteristic field can assume. Each (sub)category can, in turn, be recursively subdivided, forming a tree-like hierarchy. The leaf categories of the tree do not have any fields.
+Matching of potential exchanges
 
-Read "Traccia" for more.
+Monitoring of ongoing or completed exchanges
+
+Configuration of exchangeable activity categories
+
+⚠️ No financial compensation is ever involved in the exchanges.
+
+User Roles
+The application defines two types of users:
+
+1. Configurator
+A representative of the organization who:
+
+Sets up and maintains the category structure.
+
+Oversees exchanges (only visible to them, not handled automatically).
+
+Is notified by the system when a potential exchange is identified.
+
+Notifies participants manually (outside the system).
+
+2. Participant
+A user interested in exchanging hours of work. Participants:
+
+Browse available categories.
+
+Submit offers or requests for exchange.
+
+Wait for the configurator to validate and notify them of matching opportunities.
+
+Category Hierarchy
+The exchangeable activities are organized in a tree-like category hierarchy, configured by the configurator:
+
+Non-leaf categories:
+
+Have a characteristic field (name and domain are category-specific).
+
+Each field value defines a subcategory.
+
+Each value may include an optional description.
+
+Leaf categories:
+
+Represent actual exchangeable work.
+
+Do not have fields or further subdivisions.
+
+Exchanges can only occur at this level.
+
+Example:
+
+Category: "Tutoring" (field: subject → domain: Math, English, Science)
+
+Subcategory: "Tutoring > Math"
+
+Further breakdown may occur depending on structure depth.
+
+Final leaf: "Tutoring > Math > High School Level" (exchangeable).
+
+Key Features (Planned/Implemented Incrementally)
+ Category configuration interface (for configurators)
+
+ Exchange offer/request submission (for participants)
+
+ Matching engine for identifying potential exchanges
+
+ Notification system for configurators
+
+ Hierarchical category viewer
+
+Notes
+All interactions between participants happen through the configurator; direct contact between participants is not handled by the application.
+
+Each organization can customize its own set of categories and characteristic fields.
+
+For More Details
+Refer to the full project specification in Traccia.
